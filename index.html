@@ -1020,41 +1020,51 @@
     </footer>
 
     <script>
-            const MenuToogle=document.querySelector(".menu-toggle");
-            const navlinks=document.querySelector(".nav-links");
+                  const MenuToogle=document.querySelector(".menu-toggle");
+                  const navlinks=document.querySelector(".nav-links");
 
-            menutoogle.addEventListener('click', function() {
-            nav-links.classlist.toggle('show');
-            const menuisopen=navlinks.classlist.contains('show');
-            menutoggle.setatttribute('aria-expanded',menuisopen);
+                  menutoogle.addEventListener('click', function() {
+                  nav-links.classlist.toggle('show');
+                  const menuisopen=navlinks.classlist.contains('show');
+                  menutoggle.setatttribute('aria-expanded',menuisopen);
 
-          const navitems=document.querySelectorall(".nav-links")
-          navitems.Foreach(function(item){
-            item.addEventListener('click', function(){
-              navLinks.classList.remove("show");
+                const navitems=document.querySelectorall(".nav-links")
+                navitems.Foreach(function(item){
+                  item.addEventListener('click', function(){
+                    navLinks.classList.remove("show");
 
-        menuToggle.textContent = "☰";
+              menuToggle.textContent = "☰";
 
-        menuToggle.setAttribute("aria-expanded", "false");
+              menuToggle.setAttribute("aria-expanded", "false");
+                  });
+
             });
 
-      });
-
-      document.querySelectorall(".nav-links a");
-      document.querySelector('.menutoogle');
+            document.querySelectorall(".nav-links a");
+            document.querySelector('.menutoogle');
 
 
+                
+
+
+                   if (menuIsOpen) {
+            menuToggle.textContent = "✕";
+          } else {
+            menuToggle.textContent = "☰";
           }
+          });
 
+          const navItems = document.querySelectorAll(".nav-links a");
 
-            if('menuisopen'){
-              menutoogle.textcontent='X';
-            } else{
-              menutoogle.textcontent='≡';
-            }
+      navItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          navLinks.classList.remove("show");
 
+          menuToggle.textContent = "☰";
 
-             });
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
     </script>
   </body>
 </html>
