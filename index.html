@@ -524,18 +524,47 @@
       color: #666666;
     }
 
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #98f534;
+      font-size: 30px;
+      cursor: pointer;
+    }
+
     @media (max-width: 900px) {
       .top-bar {
+        min-height: 80px;
+        padding: 15px 6%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 25px 6%;
+        background-color: #050505;
+        border-top: 1px solid #262626;
+        border-bottom: 1px solid #262626;
         flex-direction: column;
+        align-items: center;
         gap: 20px;
       }
 
-      .body{
-        padding-top: 140px;
+      .nav-links.show {
+        display: flex;
       }
 
-      .section{
-        scroll-margin-top: 150px;
+      .section {
+        padding: 100px 6%;
+        scroll-margin-top: 100px;
       }
 
       .nav-links {
@@ -606,11 +635,7 @@
         padding: 70px 5%;
       }
 
-      .body{
-        padding-top: 150px;
-      }
-
-      section{
+      section {
         scroll-margin-top: 160px;
       }
 
@@ -694,6 +719,14 @@
         OGUNDIJO
         <div class="first-name">OLATUNBOSUN</div>
       </div>
+
+      <button
+        class="menu-toggle"
+        aria-label="open navigation menu"
+        aria-expanded="false"
+      >
+        ≡
+      </button>
 
       <nav>
         <ul class="nav-links">
@@ -973,5 +1006,43 @@
       <p>© 2026 <span>Ogundijo Olatunbosun</span>. All rights reserved.</p>
       <p class="footer-tech">Built with HTML, CSS and JavaScript.</p>
     </footer>
+
+    <script>
+            const MenuToogle=document.querySelector(".menu-toggle");
+            const navlinks=document.querySelector(".nav-links");
+
+            menutoogle.addEventListener('click', function() {
+            nav-links.classlist.toggle('show');
+            const menuisopen=navlinks.classlist.contains('show');
+            menutoggle.setatttribute('aria-expanded',menuisopen);
+
+          const navitems=document.querySelectorall(".nav-links")
+          navitems.Foreach(function(item){
+            item.addEventListener('click', function(){
+              navLinks.classList.remove("show");
+
+        menuToggle.textContent = "☰";
+
+        menuToggle.setAttribute("aria-expanded", "false");
+            });
+
+      });
+
+      document.querySelectorall(".nav-links a");
+      document.querySelector('.menutoogle');
+
+
+          }
+
+
+            if('menuisopen'){
+              menutoogle.textcontent='X';
+            } else{
+              menutoogle.textcontent='≡';
+            }
+
+
+             });
+    </script>
   </body>
 </html>
