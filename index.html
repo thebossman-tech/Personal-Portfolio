@@ -1020,51 +1020,33 @@
     </footer>
 
     <script>
-                  const MenuToogle=document.querySelector(".menu-toggle");
-                  const navlinks=document.querySelector(".nav-links");
+        const menuToggle = document.querySelector(".menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-                  menutoogle.addEventListener('click', function() {
-                  nav-links.classlist.toggle('show');
-                  const menuisopen=navlinks.classlist.contains('show');
-                  menutoggle.setatttribute('aria-expanded',menuisopen);
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("show");
 
-                const navitems=document.querySelectorall(".nav-links")
-                navitems.Foreach(function(item){
-                  item.addEventListener('click', function(){
-                    navLinks.classList.remove("show");
+    const menuIsOpen = navLinks.classList.contains("show");
 
-              menuToggle.textContent = "☰";
+    menuToggle.setAttribute("aria-expanded", menuIsOpen);
 
-              menuToggle.setAttribute("aria-expanded", "false");
-                  });
+    if (menuIsOpen) {
+      menuToggle.textContent = "✕";
+    } else {
+      menuToggle.textContent = "☰";
+    }
+  });
 
-            });
+  const navItems = document.querySelectorAll(".nav-links a");
 
-            document.querySelectorall(".nav-links a");
-            document.querySelector('.menutoogle');
+  navItems.forEach(function (item) {
+    item.addEventListener("click", function () {
+      navLinks.classList.remove("show");
+      menuToggle.textContent = "☰";
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
 
-
-                
-
-
-                   if (menuIsOpen) {
-            menuToggle.textContent = "✕";
-          } else {
-            menuToggle.textContent = "☰";
-          }
-          });
-
-          const navItems = document.querySelectorAll(".nav-links a");
-
-      navItems.forEach(function (item) {
-        item.addEventListener("click", function () {
-          navLinks.classList.remove("show");
-
-          menuToggle.textContent = "☰";
-
-          menuToggle.setAttribute("aria-expanded", "false");
-        });
-      });
     </script>
   </body>
 </html>
