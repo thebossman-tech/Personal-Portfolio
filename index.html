@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Portfolio | Home</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #050505;
+      color: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    .top-bar {
+      min-height: 80px;
+      padding: 15px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #262626;
+    }
+
+    .name {
+      color: #98f534;
+      font-size: 20px;
+      font-weight: bold;
+      line-height: 1.1;
+    }
+
+    .first-name {
+      color: #f5f5f5;
+      font-size: 14px;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #c5c5c5;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #98f534;
+    }
+
+    .download-cv {
+      padding: 5px 5px;
+      color: #98f534;
+      border: 1px solid #98f534;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    section {
+      padding: 100px 6%;
+    }
+
+    .hero-section {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      padding: 80px 6%;
+    }
+
+    .hero-content {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .hero-text {
+      flex: 1.2;
+      max-width: 650px;
+    }
+
+    .hero-greeting {
+      color: #c5c5c5;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 58px;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: #f5f5f5;
+    }
+
+    .hero-text h2 {
+      font-size: 36px;
+      color: #98f534;
+      margin-bottom: 20px;
+    }
+
+    .hero-description {
+      color: #929292;
+      font-size: 17px;
+      max-width: 550px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary-button {
+      background-color: #98f534;
+      color: #050505;
+    }
+
+    .secondary-button {
+      border: 1px solid #98f534;
+      color: #98f534;
+    }
+
+    .primary-button:hover {
+      background-color: #adff4f;
+      transform: translateY(-2px);
+    }
+
+    .secondary-button:hover {
+      background-color: #98f534;
+      color: #050505;
+    }
+
+    .social-section p {
+      color: #929292;
+      margin-bottom: 10px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-links img {
+      width: 32px;
+      height: 32px;
+      object-fit: cover;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-links img:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-image {
+      flex: 0.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-picture {
+      width: 380px;
+      height: 500px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #98f534;
+    }
+
+    .about-section {
+      padding: 100px 6%;
+      background-color: #080808;
+    }
+
+    .about-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .section-title span {
+      color: #98f534;
+      font-size: 20px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      color: #f5f5f5;
+    }
+
+    .about-content {
+      display: flex;
+      gap: 60px;
+    }
+    .about-text {
+      flex: 1;
+      padding-right: 40px;
+    }
+
+    .about-text p {
+      color: #a8a8a8;
+      font-size: 17px;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .about-details {
+      flex: 1;
+      border-left: 1px solid #262626;
+      padding-left: 50px;
+    }
+
+    .about-details p {
+      color: #a8a8a8;
+      margin-bottom: 18px;
+    }
+
+    .about-details strong {
+      color: #f5f5f5;
+      display: inline-block;
+      width: 110px;
+    }
+
+    .skills-section {
+      padding: 100px 6%;
+      background-color: #050505;
+    }
+
+    .skills-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .skill-card {
+      background-color: #111111;
+      border: 1px solid #262626;
+      border-radius: 10px;
+      padding: 35px 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .skill-card img {
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+
+    .skill-card h3 {
+      color: #f5f5f5;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .skill-card:hover {
+      border-color: #98f534;
+      transform: translateY(-5px);
+    }
+
+    .projects-section {
+      padding: 100px 6%;
+      background-color: #080808;
+    }
+
+    .project-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      background-color: #111111;
+      border: 1px solid #262626;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      border-color: #98f534;
+    }
+
+    .project-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-info {
+      padding: 25px;
+    }
+
+    .project-info h3 {
+      color: #f5f5f5;
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .project-info p {
+      color: #929292;
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .project-tech span {
+      background-color: #1a1a1a;
+      color: #98f534;
+      border: 1px solid #303030;
+      border-radius: 5px;
+      padding: 4px 9px;
+      font-size: 12px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .project-links a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .project-links a:hover {
+      color: #98f534;
+    }
+
+    .contact-section {
+      padding: 100px 6%;
+      background-color: #050505;
+    }
+
+    .contact-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .contact-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 80px;
+    }
+
+    .contact-left {
+      flex: 1;
+    }
+
+    .contact-left h3 {
+      color: #f5f5f5;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .contact-left h2 {
+      color: #98f534;
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .contact-left p {
+      color: #929292;
+      font-size: 16px;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background-color: #98f534;
+      color: #050505;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 12px 22px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    .contact-button:hover {
+      background-color: #adff4f;
+      transform: translateY(-3px);
+    }
+
+    .contact-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .contact-item > span {
+      color: #98f534;
+      font-size: 26px;
+      width: 40px;
+    }
+
+    .contact-item h4 {
+      color: #f5f5f5;
+      font-size: 16px;
+      margin-bottom: 3px;
+    }
+
+    .contact-item p {
+      color: #929292;
+    }
+
+    .contact-item a {
+      color: #929292;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .contact-item a:hover {
+      color: #98f534;
+    }
+
+    .footer {
+      background-color: #080808;
+      border-top: 1px solid #262626;
+      padding: 25px 6%;
+      text-align: center;
+    }
+
+    .footer p {
+      color: #929292;
+      font-size: 14px;
+    }
+
+    .footer p span {
+      color: #98f534;
+      transition: 0.3s;
+    }
+
+    .footer p span:hover {
+      color: #adff4f;
+    }
+
+    .footer-tech{
+      margin-top: 5px;
+      font-size: 12px;
+      color: #666666;
+    }
+
+    @media(max-width:900px){
+      .top-bar{
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    @media(max-width: 600px){
+      section{
+        padding: 70px 5%;
+      }
+
+      .top-bar{
+        padding: 15px 5%;
+      }
+
+      .nav-links{
+        gap: 12px;
+      }
+
+      .nav-links a{
+        font-size: 13px;
+      }
+
+      .hero-section{
+        padding: 60px 5%;
+      }
+
+      .hero-text h1{
+        font-size: 40px;
+      }
+
+      .hero-text h2{
+        
+      }
+    }
+
+    .nav-links{
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .hero-content{
+      flex-direction: column;
+      text-align: center;
+      gap: 50px;
+    }
+
+    .hero-text{
+      max-width: 700px;
+    }
+
+    .hero-description{
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-buttons{
+      justify-content: center;
+    }
+
+    .social-links{
+      justify-content: center;
+    }
+
+    .profile-picture{
+      width: 320px;
+      height: 400px;
+    }
+
+    .about-content{
+      flex-direction: column;
+    }
+
+    .about-text{
+      padding-right: 0;
+    }
+
+    .about-details{
+      border-left: none;
+      border-top: 1px solid #262626;
+      padding-left: 0;
+      padding-top: 30px;
+    }
+
+    .skills-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid{
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-content{
+      flex-direction: column;
+      gap: 50px;
+    }
+  </style>
+  <body>
+    <header class="top-bar">
+      <div class="name">
+        OGUNDIJO
+        <div class="first-name">OLATUNBOSUN</div>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li>
+            <a href="OGUNDIJO OLATUNBOSUN CV.pdf" class="download-cv"
+              >Download CV</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero-section">
+        <div class="hero-content">
+          <div class="hero-text">
+            <p class="hero-greeting">Hello, I'm</p>
+            <h1>OGUNDIJO<br />OLATUNBOSUN</h1>
+            <h2>Frontend Developer</h2>
+            <p class="hero-description">
+              I build responsive, user-friendly websites with clean code and
+              modern design
+            </p>
+            <div class="hero-buttons">
+              <a href="#projects" class="primary-button">View My Work→</a>
+              <a href="#contact" class="secondary-button">Contact Me 👤</a>
+            </div>
+
+            <div class="social-section">
+              <p>Follow Me</p>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/in/bosun-ogundijo-b70341398?trk=contact-info"
+                aria-label="Visit My linkedin profile"
+              >
+                <img src="images/linkedin-icon.jpg" alt="" />
+              </a>
+              <a
+                href="https://x.com/dailydose_vibes?s=11"
+                aria-label="Visit my X profile"
+              >
+                <img src="images/twitter-icon.jpg" alt="" />
+              </a>
+              <a href="">
+                <img src="images/Instagram-logo.jpg" alt="" />
+              </a>
+              <a
+                href="https://www.facebook.com/share/18jMx3fQpd/?mibextid=wwXIfr"
+                aria-label="Visit My facebook profile"
+              >
+                <img src="images/facebook-icon.jpg" alt="" />
+              </a>
+              <a
+                href="https://wa.me/2347086078175?text=Hello%20Olatunbosun%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project"
+                aria-label="Contact Me On Whatsapp"
+              >
+                <img src="images/whatsapp-icon.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-image">
+            <img
+              src="images/mypicture11.png"
+              alt="Portrait of Ogundijo Olatunbosun"
+              class="profile-picture"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="about" class="about-section">
+        <div class="about-container">
+          <div class="section-title">
+            <span>●</span>
+            <h2>About Me</h2>
+          </div>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                I’m a frontend developer passionate about creating beautiful,
+                responsive and functional websites.
+              </p>
+
+              <p>
+                I enjoy turning ideas into real digital experiences using HTML,
+                CSS and JavaScript. I am continuously improving my skills and
+                learning new technologies.
+              </p>
+            </div>
+            <div class="about-details">
+              <p>
+                <strong>Name:</strong>
+                Ogundijo Olatunbosun
+              </p>
+              <p>
+                <strong>Location:</strong>
+                Nigeria
+              </p>
+              <p>
+                <strong>Email:</strong>
+                olatunbosun.olu10@gmail.com
+              </p>
+              <p>
+                <strong>Availability:</strong>
+                Available for opportunities
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="skills-section">
+        <div class="skills-container">
+          <div class="section-title">
+            <span>●</span>
+            <h2>My Skills</h2>
+          </div>
+          <div class="skills-grid">
+            <div class="skill-card">
+              <img src="images/skills/HTML.jpg" alt="Html icon" />
+              <h3>HTML</h3>
+            </div>
+            <div class="skill-card">
+              <img
+                src="images/skills/CSS3 Badge with CSS text.jpg"
+                alt="Css icon"
+              />
+              <h3>CSS</h3>
+            </div>
+            <div class="skill-card">
+              <img src="images/skills/JavaScript.jpg" alt="Javascript icon" />
+              <h3>JAVASCRIPT</h3>
+            </div>
+            <div class="skill-card">
+              <img src="images/skills/react icon.jpg" alt="React icon" />
+              <h3>REACT</h3>
+            </div>
+            <div class="skill-card">
+              <img src="images/skills/Git.jpg" alt="GIT icon" />
+              <h3>GIT</h3>
+            </div>
+            <div class="skill-card">
+              <img src="images/skills/figma icon.jpg" alt="figma icon" />
+              <h3>FIGMA</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects-section">
+        <div class="project-container">
+          <div class="section-title">
+            <span>●</span>
+            <h2>My Projects</h2>
+          </div>
+          <div class="project-grid">
+            <div class="project-card">
+              <img
+                src=""
+                alt="personal portfolio project screenshot"
+                class="project-image"
+              />
+              <div class="project-info">
+                <h3>Personal Portfolio</h3>
+                <p>
+                  A responsive personal portfolio website built to showcase my
+                  skills, projects and contact information.
+                </p>
+                <div class="project-tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JAVASCRIPT</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" target="_blank">Live Demo ↗</a>
+                  <a href="#" target="_blank">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img src="" alt="" class="project-image" />
+              <div class="project-info">
+                <h3></h3>
+                <p></p>
+                <div class="project-tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" target="_blank">Live Demo ↗</a>
+                  <a href="#" target="_blank">GitHub</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-card">
+              <img src="" alt="" class="project-image" />
+              <div class="project-info">
+                <h3></h3>
+                <p></p>
+                <div class="project-tech">
+                  <span>HTML</span>
+                  <span>CSS</span>
+                  <span>JAVASCRIPT</span>
+                </div>
+                <div class="project-links">
+                  <a href="#" target="_blank">Live Demo ↗</a>
+                  <a href="#" target="_blank">GitHub ↗</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="contact" class="contact-section">
+        <div class="contact-container">
+          <div class="section-title">
+            <span>●</span>
+            <h2>Contact Me</h2>
+          </div>
+          <div class="contact-content">
+            <div class="contact-left">
+              <h3>Have a project in mind</h3>
+              <h2>Let's work together</h2>
+              <p>
+                I'm available for freelance projects, collaborations and
+                frontend development opportunities.
+              </p>
+              <a
+                href="mailto:olatunbosun.olu10@gmail.com?subject=Project%20Enquiry&body=Hello%20Olatunbosun,%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+                class="contact-button"
+                >Send Message →</a
+              >
+            </div>
+            <div class="contact-details">
+              <div class="contact-item">
+                <span>📧</span>
+                <div>
+                  <h4>Email</h4>
+                  <a href="mailto:olatunbosun.olu10@gmail.com"
+                    >olatunbosun.olu10@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span>☎</span>
+                <div>
+                  <h4>Phone/WhatsApp</h4>
+                  <a href="https://wa.me/2347086078175" target="_blank"
+                    >+2347086078175</a
+                  >
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <span>📍</span>
+                <div>
+                  <h4>Location</h4>
+                  <p>Nigeria</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 <span>Ogundijo Olatunbosun</span>. All rights reserved.</p>
+      <p class="footer-tech">Built with HTML, CSS and JavaScript.</p>
+    </footer>
+  </body>
+</html>
