@@ -526,21 +526,38 @@
 
     .menu-toggle {
       display: none;
-      background: none;
-      border: none;
+      width: 44px;
+      height: 44px;
+      background-color: #111111;
+      border: 1px solid #262626;
+      border-radius: 8px;
       color: #98f534;
-      font-size: 30px;
+      font-size: 26px;
       cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+    }
+
+    .menu-toggle:hover {
+      border-color: #98f534;
+      background-color: #161616;
     }
 
     @media (max-width: 900px) {
+      .download-cv {
+        display: inline-block;
+        padding: 10px 18px;
+        margin-top: 5px;
+      }
       .top-bar {
         min-height: 80px;
         padding: 15px 6%;
       }
 
       .menu-toggle {
-        display: block;
+        display: flex;
+        margin-left: auto;
       }
 
       .nav-links {
@@ -560,11 +577,6 @@
 
       .nav-links.show {
         display: flex;
-      }
-
-      .section {
-        padding: 100px 6%;
-        scroll-margin-top: 100px;
       }
 
       .nav-links {
@@ -627,18 +639,6 @@
       .contact-content {
         flex-direction: column;
         gap: 50px;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-links.show {
-        display: flex;
       }
     }
 
@@ -737,7 +737,7 @@
         aria-label="open navigation menu"
         aria-expanded="false"
       >
-        ≡
+        ☰
       </button>
 
       <nav>
@@ -1020,33 +1020,32 @@
     </footer>
 
     <script>
-        const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
 
-  menuToggle.addEventListener("click", function () {
-    navLinks.classList.toggle("show");
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
 
-    const menuIsOpen = navLinks.classList.contains("show");
+        const menuIsOpen = navLinks.classList.contains("show");
 
-    menuToggle.setAttribute("aria-expanded", menuIsOpen);
+        menuToggle.setAttribute("aria-expanded", menuIsOpen);
 
-    if (menuIsOpen) {
-      menuToggle.textContent = "✕";
-    } else {
-      menuToggle.textContent = "☰";
-    }
-  });
+        if (menuIsOpen) {
+          menuToggle.textContent = "✕";
+        } else {
+          menuToggle.textContent = "☰";
+        }
+      });
 
-  const navItems = document.querySelectorAll(".nav-links a");
+      const navItems = document.querySelectorAll(".nav-links a");
 
-  navItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      navLinks.classList.remove("show");
-      menuToggle.textContent = "☰";
-      menuToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
+      navItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          navLinks.classList.remove("show");
+          menuToggle.textContent = "☰";
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
     </script>
   </body>
 </html>
