@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Personal Portfolio</title>
-    <link rel="icon" href="images/personal-portfolio logo.jpg">
+    <link rel="icon" href="images/personal-portfolio logo.jpg" />
   </head>
 
   <style>
@@ -389,19 +389,49 @@
 
     .project-links {
       display: flex;
-      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .project-links a {
-      color: #f5f5f5;
+      display: inline-block;
+      padding: 9px 14px;
+      color: #050505;
+      background-color: #98f534;
+      border: 1px solid #98f534;
+      border-radius: 5px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
       transition: 0.3s;
     }
 
-    .project-links a:hover {
+    .project-links a:last-child {
       color: #98f534;
+      background-color: transparent;
+    }
+
+    .project-links a:hover {
+      color: #050505;
+      background-color: #adff4f;
+      border-color: #adff4f;
+      transform: translateY(-2px);
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-info {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+    }
+
+    .project-links {
+      margin-top: auto;
     }
 
     .contact-section {
@@ -789,8 +819,8 @@
               >
                 <img src="images/twitter-icon.jpg" alt="" />
               </a>
-              <a href="">
-                <img src="images/Instagram-logo.jpg" alt="" />
+              <a href="https://github.com/thebossman-tech">
+                <img src="images/github-icon.jpg" alt="" />
               </a>
               <a
                 href="https://www.facebook.com/share/18jMx3fQpd/?mibextid=wwXIfr"
@@ -904,7 +934,7 @@
           <div class="project-grid">
             <div class="project-card">
               <img
-                src=""
+                src="images/projects/personal-portfolio.png"
                 alt="personal portfolio project screenshot"
                 class="project-image"
               />
@@ -920,27 +950,57 @@
                   <span>JAVASCRIPT</span>
                 </div>
                 <div class="project-links">
-                  <a href="#" target="_blank">Live Demo ↗</a>
-                  <a href="#" target="_blank">GitHub ↗</a>
+                  <a href="https://personal-portfolio-vg1y.onrender.com" target="_blank">Live Demo ↗</a>
+                  <a href="https://github.com/thebossman-tech/Personal-Portfolio" target="_blank">GitHub ↗</a>
                 </div>
               </div>
             </div>
 
-            <div class="project-card">
-              <img src="" alt="" class="project-image" />
+            <article class="project-card">
+              <img
+                src="images/projects/savory-bites.png"
+                alt="Homepage of the Savory Bites Nigerian restaurant website"
+                class="project-image"
+                loading="lazy"
+                decoding="async"
+              />
+
               <div class="project-info">
-                <h3></h3>
-                <p></p>
-                <div class="project-tech">
-                  <span>HTML</span>
-                  <span>CSS</span>
+                <h3>Savory Bites Restaurant</h3>
+
+                <p>
+                  A responsive multi-page website designed for a fictional
+                  Nigerian restaurant. It features an engaging homepage,
+                  restaurant story, food menu, contact form, FAQ section and
+                  mobile-friendly layouts.
+                </p>
+
+                <div class="project-tech" aria-label="Technologies used">
+                  <span>HTML5</span>
+                  <span>CSS3</span>
+                  <span>Responsive Design</span>
+                  <span>Accessibility</span>
                 </div>
+
                 <div class="project-links">
-                  <a href="#" target="_blank">Live Demo ↗</a>
-                  <a href="#" target="_blank">GitHub ↗</a>
+                  <a
+                    href="https://savory-bites-restaurant.onrender.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Live Website ↗
+                  </a>
+
+                  <a
+                    href="https://github.com/thebossman-tech/savory-bites-restaurant"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    GitHub ↗
+                  </a>
                 </div>
               </div>
-            </div>
+            </article>
 
             <div class="project-card">
               <img src="" alt="" class="project-image" />
